@@ -1,22 +1,32 @@
 import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Content from './components/Content';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import routes from './routes.js';
+
 import './App.scss';
 const App = () => {
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const body = document.getElementsByTagName('body')[0];
-      body.classList.add('scroll')
+  var timer = null;
 
-      setTimeout(() => {
-        body.classList.remove('scroll')
-      }, 3000);
-    })
+  const onScrollHandler = () => {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('scroll')
+    if (timer !== null) {
+      clearTimeout(timer);
+      timer = null
+    } 
+    timer = setTimeout(() => {
+      body.classList.remove('scroll')
+    }, 1500);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScrollHandler)
   })
   return (
     <div className="App">
-      <Navbar />
-      <Content />
+      <Router>
+        {renderRoutes(routes)}
+      </Router>
     </div>
   );
 }

@@ -37,6 +37,11 @@ body {
   }
 }
 
+.App {
+  transition: transform 1.85s cubic-bezier(.2,1,.2,1);
+  -webkit-backface-visibility: hidden;
+}
+
 //content.scss
 .content {
   width: 80%;
