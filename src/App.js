@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Content from './components/Content';
+import './App.scss';
+const App = () => {
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const body = document.getElementsByTagName('body')[0];
+      body.classList.add('scroll')
 
-function App() {
+      setTimeout(() => {
+        body.classList.remove('scroll')
+      }, 3000);
+    })
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Content />
     </div>
   );
 }
-
 export default App;
