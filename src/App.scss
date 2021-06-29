@@ -1,24 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import './assets/styles/variables.scss';
+@import "./assets/styles/variables.scss";
 body,
 html,
 * {
   font-family: Roboto, Arial, sans-serif;
   font-size: 14px;
-  letter-spacing: -0.025em;
+  // letter-spacing: -0.025em;
+  overflow-x: hidden;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
   border-radius: 10px;
   background: transparent;
-  transform: scaleX(-1);transform: scaleX(-1);
+  transform: scaleX(-1);
+  transform: scaleX(-1);
 }
- 
+
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
   background-color: transparent;
   border-radius: 4px;
@@ -31,22 +37,16 @@ html,
 //   display: none;
 // }
 
-.scroll::-webkit-scrollbar-thumb {
-  background: $lightgray;
+.scroll {
+  &::-webkit-scrollbar-thumb {
+    background: $lightgray;
+  }
 }
 
 .App {
-  transition: transform 1.85s cubic-bezier(.2,1,.2,1);
+  transition: transform 1.85s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
-//content.scss
-.content {
-  width: 80%;
-  margin: 2rem 10% 0 10%;
-  max-width: 100%;
-  box-sizing: border-box;
-  min-height: 100vh;
-}
 .box {
   width: 80%;
   margin: 2rem 10% 0 10%;
@@ -56,10 +56,36 @@ html,
 
 #App {
   position: absolute;
-  transition: transform 1.85s cubic-bezier(.2,1,.2,1);
+  transition: transform 1.85s cubic-bezier(0.2, 1, 0.2, 1);
 
   &.sidebar-exit {
-    transition: transform 2s cubic-bezier(.2,1,.2,1);
+    transition: transform 2s cubic-bezier(0.2, 1, 0.2, 1);
     transform: translate(-10%);
+    &::-webkit-scrollbar-thumb {
+      display: none;
+    }
   }
+}
+
+::selection {
+  color: #00f;
+}
+
+input[type="button"],
+input[type="email"],
+input[type="number"],
+input[type="submit"],
+input[type="tel"],
+input[type="text"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
 }

@@ -1,0 +1,291 @@
+@import "./variables.scss";
+
+.CTAForm_header {
+  padding: 85px 0 55px;
+  border-bottom: 1px solid #cacaca;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CTAForm_header_content {
+  width: 90%;
+  max-width: 480px;
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    margin-top: 0;
+  }
+}
+
+.CTAFormMasthead__bodyCopy {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+
+.CTAFormMasthead__legend {
+  font-size: 9px;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: $red;
+}
+
+.CTAForms_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CTAFormPages__mainWrapper {
+  width: 90%;
+  max-width: 480px;
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
+
+@keyframes CTAFormsAnim--fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.AnimCTAForms--onBoardFade {
+  animation: CTAFormsAnim--fadeIn 2.75s cubic-bezier(0.2, 1, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.CTAFormPages__inputMainWrapper {
+  margin-bottom: 50px;
+}
+
+.CTAFormPages__header {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.CTAFormPages__inputLabelWrapper--checkbox {
+  width: 30.33333%;
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+  position: relative;
+  margin-right: 3%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+}
+
+.CTAFormPages__defaultInputEl--checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.CTAFormPages__customInputEl--checkbox {
+  transition-delay: 0s;
+  transition: box-shadow 0.15s cubic-bezier(0.8, 0.1, 0.2, 0.9), transform 0.25s;
+}
+
+.CTAFormPages__customInputEl--checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 1px #373737;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.CTAFormPages__customInputEl--checkbox:before {
+  transition: transform 0.15s cubic-bezier(0.8, 0.1, 0.2, 0.9);
+}
+
+.CTAFormPages__customInputEl--checkbox:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #ec4848;
+  transform: scale(0);
+}
+
+.CTAFormPages__customInputEl--checkbox:after {
+  transition: transform 0.3s cubic-bezier(0.8, 0.1, 0.2, 0.9) 0.06s;
+}
+
+.CTAFormPages__customInputEl--checkbox:after {
+  content: "";
+  width: 3.5px;
+  height: 7px;
+  display: inline-block;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg) translate(-110%, -20%) scale(0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.CTAFormPages__defaultInputEl--checkbox:checked
+  ~ .CTAFormPages__customInputEl--checkbox {
+  box-shadow: inset 0 0 1px #ec4848;
+  transition-delay: 0.2s;
+  -webkit-backface-visibility: hidden;
+}
+
+.CTAFormPages__customInputEl--checkbox {
+  transition-delay: 0s;
+  transition: box-shadow 0.15s cubic-bezier(0.8, 0.1, 0.2, 0.9), transform 0.25s;
+}
+
+.CTAFormPages__customInputEl--checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 1px #373737;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.CTAFormPages__defaultInputEl--checkbox:checked
+  ~ .CTAFormPages__customInputEl--checkbox:before {
+  transform: scale(1);
+}
+
+.CTAFormPages__customInputEl--checkbox:before {
+  transition: transform 0.15s cubic-bezier(0.8, 0.1, 0.2, 0.9);
+}
+
+.CTAFormPages__customInputEl--checkbox:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #ec4848;
+  transform: scale(0);
+}
+
+.CTAFormPages__defaultInputEl--checkbox:checked
+  ~ .CTAFormPages__customInputEl--checkbox:after {
+  transform: rotate(45deg) translate(-110%, -20%) scale(1);
+}
+
+.CTAFormPages__customInputEl--checkbox:after {
+  transition: transform 0.3s cubic-bezier(0.8, 0.1, 0.2, 0.9) 0.06s;
+}
+
+.CTAFormPages__customInputEl--checkbox:after {
+  content: "";
+  width: 3.5px;
+  height: 7px;
+  display: inline-block;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg) translate(-110%, -20%) scale(0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.CTAFormPages__defaultInputEl--text,
+.CTAFormPages__defaultInputEl--textarea {
+  transition: border-color 0.6s;
+}
+
+.CTAFormPages__defaultInputEl--text {
+  width: calc(100% - 42px);
+  font-size: 14px;
+  padding: 17.5px 20px;
+  border: 1px solid #dad6da;
+  background: #f9f9f9;
+}
+
+.CTAFormPages__defaultInputEl--textarea {
+  width: calc(100% - 42px);
+  height: 120px;
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid #dad6da;
+  background: #f9f9f9;
+  resize: none;
+  padding: 20px;
+}
+.CTAFormPages__defaultInputEl--text,
+.CTAFormPages__defaultInputEl--textarea {
+  transition: border-color 0.6s;
+}
+
+.CTAFormPages__defaultInputEl--text,
+.CTAFormPages__defaultInputEl--textarea {
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border-color: #000;
+    border-radius: 0;
+    outline: unset;
+  }
+}
+
+.CTAFormPages__contactDetailsMainWrapper .CTAFormPages__inputMainWrapper {
+  margin-bottom: 0;
+}
+
+.CTAFormPages__contactDetailsMainWrapper .invalid-feedback {
+  margin: 10px 0;
+}
+
+.CTAFormPages__recaptchaWrapper {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.buttonLoader__button {
+  text-align: center;
+  display: inline-block;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  .buttonLoader__spinner {
+    display: none;
+  }
+}
+
+.CTAFormPages__btnSubmit {
+  transition: transform 0.3s, background 0.3s;
+}
+
+.CTAFormPages__btnSubmit {
+  color: #fff;
+  background: #d5333e;
+  padding: 4px 60px;
+  border-radius: 50px;
+  cursor: pointer;
+  float: right;
+  clear: both;
+  outline: none;
+  border: none;
+}
