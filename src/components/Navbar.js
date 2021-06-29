@@ -2,7 +2,7 @@
 import React from 'react';
 import '../assets/styles/navbar.scss';
 import Logo from '../assets/images/logo-codigo-red.svg';
-const Navbar = () => {
+const Navbar = ({ navButtons }) => {
   return (
     <header className="navBar">
       <div className="navbar_wrapper">
@@ -39,9 +39,11 @@ const Navbar = () => {
             <p>Blog</p>
           </a>
 
-          <span className="nav_button">
-            Request a quote
-          </span>
+          {
+            navButtons && navButtons.map((button) => {
+              return button
+            })
+          }
         </div>
       </div>
     </header>

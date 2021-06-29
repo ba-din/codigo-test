@@ -8,18 +8,18 @@ html,
   letter-spacing: -0.025em;
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 8px;
   border-radius: 10px;
   background: transparent;
   transform: scaleX(-1);transform: scaleX(-1);
 }
  
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background-color: transparent;
 }
  
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: transparent;
   border-radius: 4px;
   &:hover {
@@ -31,15 +31,12 @@ body::-webkit-scrollbar-thumb {
 //   display: none;
 // }
 
-body {
-  &.scroll::-webkit-scrollbar-thumb {
-    background: $lightgray;
-  }
+.scroll::-webkit-scrollbar-thumb {
+  background: $lightgray;
 }
 
 .App {
   transition: transform 1.85s cubic-bezier(.2,1,.2,1);
-  -webkit-backface-visibility: hidden;
 }
 
 //content.scss
@@ -55,4 +52,14 @@ body {
   margin: 2rem 10% 0 10%;
   height: 100vh;
   background-color: plum;
+}
+
+#App {
+  position: absolute;
+  transition: transform 1.85s cubic-bezier(.2,1,.2,1);
+
+  &.sidebar-exit {
+    transition: transform 2s cubic-bezier(.2,1,.2,1);
+    transform: translate(-10%);
+  }
 }
