@@ -33,7 +33,7 @@ const App = () => {
           <Navbar
             navButtons={[
               (
-                <span className="nav_button" onClick={() => setSidebarOpen(true)}>
+                <span key='request-a-quote' className="nav_button" onClick={() => setSidebarOpen(true)}>
                   Request a quote
                 </span>
               )

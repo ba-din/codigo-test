@@ -1,96 +1,70 @@
-import React from 'react';
-import Content from '../components/Content.js';
-import '../assets/styles/views/work.scss'
+import React, { useEffect, useState } from 'react';
+import '../assets/styles/views/work.scss';
+import workCategories, { legends } from '../data/workCategories';
+import { useHistory } from 'react-router-dom';
 
 const WorkView = () => {
+  const history = useHistory();
+  const urlParams = new URLSearchParams(history.location.search);
+  const tags = urlParams.tags || 'all'
+  const [categoryList, setCategoryList] = useState(workCategories);
+
+  useEffect(() => {
+    history.push(encodeURI(`/work?tags=${tags}`))
+  }, [history, tags])
+
+  const onHandleCatClick = (cat) => {
+    const catList = [...categoryList]
+    catList.map((item) => {
+      if (cat.title === item.title) {
+        item.active = true
+      } else {
+        delete item.active
+      }
+      return item
+    })
+    setCategoryList(catList)
+    history.push(encodeURI(`/work?tags=${cat.key}`))
+  }
   return (
     <div>
-      <div class="Work__mastheadWrapper">
-        <p class="Work__mainHeader WorkOnboardAnim__heroCopy">Here’s 5% of
+      <div className="Work__mastheadWrapper">
+        <p className="Work__mainHeader WorkOnboardAnim__heroCopy">Here’s 5% of
         </p>
-        <p class="Work__mainHeader WorkOnboardAnim__heroCopy">our published work.
+        <p className="Work__mainHeader WorkOnboardAnim__heroCopy">our published work.
         </p>
-        <p class="color--red Work__mainHeader WorkOnboardAnim__heroCopy">See 100% of our power.
+        <p className="color--red Work__mainHeader WorkOnboardAnim__heroCopy">See 100% of our power.
         </p>
-        <div class="WorkOnboardAnim__categoryList WorkFilterAndLegend__mainGridWrapper WorkFilterAndLegend--isHorizontal ">
-          <div class="workCategory__mainWrapper clearfix">
-            <div class="workCategory__itemWrapper is--active">
-              <div class="workCategory__itemText">All
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Food &amp; Beverage
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Media
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Transport &amp; Logistics
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Banking &amp; Finance
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Lifestyle
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Co-incubation
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Healthcare
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Retail &amp; Entertainment
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Telco
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Others
-              </div>
-            </div>
-            <div class="workCategory__itemWrapper ">
-              <div class="workCategory__itemText">Start-ups
-              </div>
-            </div>
+        <div className="WorkOnboardAnim__categoryList WorkFilterAndLegend__mainGridWrapper WorkFilterAndLegend--isHorizontal ">
+          <div className="workCategory__mainWrapper clearfix">
+            {
+              categoryList.map((category) => {
+                const styleClass = `workCategory__itemWrapper ${category.active ? 'is--active' : ''}`
+                return (
+                  <div key={category.key} className={styleClass} onClick={() => onHandleCatClick(category)}>
+                    <div className="workCategory__itemText">
+                      {category.title}
+                    </div>
+                  </div>
+                )
+              })
+            }
           </div>
-          <div class="workLegend__mainWrapper">
-            <p class="workLegend__header">Legend
+          <div className="workLegend__mainWrapper">
+            <p className="workLegend__header">Legend
             </p>
-            <div class="workLegend__itemWrapper clearfix">
-              <div class="workLegend__item clearfix">
-                <div class="workLegend__itemIcon workLegendItemIcon--app">
-                </div>
-                <p class="workLegend__itemText">APP
-                </p>
-              </div>
-              <div class="workLegend__item clearfix">
-                <div class="workLegend__itemIcon workLegendItemIcon--web">
-                </div>
-                <p class="workLegend__itemText">WEB
-                </p>
-              </div>
-              <div class="workLegend__item clearfix">
-                <div class="workLegend__itemIcon workLegendItemIcon--cms">
-                </div>
-                <p class="workLegend__itemText">CMS
-                </p>
-              </div>
-              <div class="workLegend__item clearfix">
-                <div class="workLegend__itemIcon workLegendItemIcon--uiux">
-                </div>
-                <p class="workLegend__itemText">UI/UX
-                </p>
-              </div>
+            <div className="workLegend__itemWrapper clearfix">
+              {
+                legends.map((item) => (
+                  <div key={item.title} className="workLegend__item clearfix">
+                    <div className="workLegend__itemIcon workLegendItemIcon--app">
+                    </div>
+                    <p className="workLegend__itemText">
+                      {item.title}
+                    </p>
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
