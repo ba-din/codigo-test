@@ -10,6 +10,18 @@
     opacity: 1;
   }
 }
+
+@keyframes workGridItem-onboard {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100px, 0) scale3d(0.95, 0.95, 0.95)
+      rotate3d(1, 0.05, 0, 5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) scaleX(1) rotate3d(0, 0, 0, 0);
+  }
+}
 .Work__mastheadWrapper {
   width: 75%;
   margin: 0 auto;
@@ -171,4 +183,159 @@
   letter-spacing: 0.1px;
   margin-top: 2px;
   text-transform: uppercase;
+}
+
+.Work__compressorGridWrapper {
+  transform-origin: right top;
+  transition: max-width 0.5s;
+  will-change: auto;
+  width: 100%;
+  max-width: 100%;
+  float: right;
+}
+
+.workGrid__mainWrapper {
+  perspective: 1000px;
+}
+
+.workGrid__mainWrapper {
+  width: 100%;
+  min-height: 50vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% 25% 25% 25%;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-auto-flow: row dense;
+}
+
+.workGrid__gridItem {
+  animation-name: workGridItem-onboard;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.4, 0.6, 0.6, 1);
+  transform-origin: 80% 90%;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  overflow: hidden;
+  transition: min-height 0.5s, max-height 0.5s;
+  will-change: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30px auto 30px;
+  grid-template-columns: 30px auto 30px;
+  -ms-grid-rows: 30px 30px auto 30px 30px;
+  grid-template-rows: 30px 30px auto 30px 30px;
+  min-height: 32.5vw;
+  max-height: 32.5vw;
+  position: relative;
+  z-index: 0;
+}
+
+.workGrid__colWidth--span2 {
+  -ms-grid-column-span: 2;
+  grid-column: span 2;
+}
+
+.workGrid__bgImg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: transform 1.25s, opacity 2.5s;
+  opacity: 1;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.workGrid__textCategory_gridWrapper {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+.workGrid__textCategory_text,
+.workGrid__textProjectTitle_text {
+  transition: color 0.8s;
+}
+
+.workGrid__textCategory_text {
+  font-size: 0.875vw;
+}
+
+.workGrid__textProjectTitle_gridWrapper {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+.workGrid__textProjectTitle_text {
+  font-size: 1.5vw;
+  font-weight: 800;
+}
+
+.workGrid__icoPlatformsOnMainWrapper {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 4;
+  grid-row: 4;
+}
+
+.workGrid__gridItem:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.5s;
+}
+
+.workGrid__gridItem:hover:after {
+  opacity: 0.35;
+}
+
+.workGrid__gridItem:hover .workGrid__bgImg {
+  transform: scale3d(1.1,1.1,1.1);
+  opacity: .85;
+}
+
+.workGrid__IcoPlatforms {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  float: left;
+  background: #fff;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 14px;
+}
+
+.workGrid__IcoPlatforms.workGridIcoPlatforms--app {
+  background-image: url(https://www.codigo.co/img/ui/ico-app.svg);
+}
+
+.workGrid__IcoPlatforms.workGridIcoPlatforms--uiux {
+  background-image: url(https://www.codigo.co/img/ui/ico-uiux.svg);
+}
+
+.workGrid__IcoPlatforms.workGridIcoPlatforms--cms {
+  background-image: url(https://www.codigo.co/img/ui/ico-cms.svg);
+}
+
+.workGrid__IcoPlatforms.workGridIcoPlatforms--web {
+  background-image: url(https://www.codigo.co/img/ui/ico-web.svg);
+}
+
+.workGrid__IcoPlatforms:not(:last-child) {
+  margin-right: 10px;
 }

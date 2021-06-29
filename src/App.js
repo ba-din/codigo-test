@@ -27,7 +27,7 @@ const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div style={{position: 'relative'}}>
+    <div style={{ position: 'relative' }}>
       <div className="App" id="App">
         <div >
           <Navbar
@@ -44,11 +44,13 @@ const App = () => {
           </Router>
         </div>
       </div>
-      <Sidebar
-        show={sidebarOpen}
-        setShow={setSidebarOpen}
-        style={{position: 'absolute'}}
-      />
+      <div className="sidebar__wrapper">
+        <Sidebar
+          show={sidebarOpen}
+          setShow={setSidebarOpen}
+          style={{ position: 'absolute' }}
+        />
+      </div>
     </div>
   );
 }
