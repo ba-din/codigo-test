@@ -16,6 +16,7 @@ const Content = () => {
     <main className="content">
       {data}
       {data}
+      {data}
     </main>
   )
 }

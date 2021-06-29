@@ -13,6 +13,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  margin: 0;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   border-radius: 10px;
@@ -55,7 +59,7 @@ html {
 }
 
 #App {
-  position: absolute;
+  // position: absolute;
   transition: transform 1.85s cubic-bezier(0.2, 1, 0.2, 1);
 
   &.sidebar-exit {
@@ -88,4 +92,14 @@ textarea {
 
 .form-control:focus {
   box-shadow: none;
+}
+
+p {
+  margin: 0px;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
 }

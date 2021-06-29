@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import routes from './routes.js';
 import Sidebar from "./components/Sidebar";
+import Navbar from './components/Navbar.js';
 
 import './App.scss';
 const App = () => {
@@ -26,17 +27,29 @@ const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <>
+    <div style={{position: 'relative'}}>
       <div className="App" id="App">
-        <Router>
-          {renderRoutes(routes, {sidebarOpen, setSidebarOpen})}
-        </Router>
+        <div >
+          <Navbar
+            navButtons={[
+              (
+                <span className="nav_button" onClick={() => setSidebarOpen(true)}>
+                  Request a quote
+                </span>
+              )
+            ]}
+          />
+          <Router>
+            {renderRoutes(routes)}
+          </Router>
+        </div>
       </div>
       <Sidebar
         show={sidebarOpen}
         setShow={setSidebarOpen}
+        style={{position: 'absolute'}}
       />
-    </>
+    </div>
   );
 }
 export default App;
