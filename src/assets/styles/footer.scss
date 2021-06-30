@@ -102,3 +102,18 @@
     margin-bottom: 20px;
   }
 }
+
+@media only screen and (max-width: 960px) {
+  .footer_trust_wrapper {
+    flex-direction: column;
+    div {
+      width: 100% !important;
+      border-right: none;
+      margin: 15px 0;
+    }
+  }
+
+  .trusts__itemWrapper {
+    border-bottom: 1px solid $darkgray;
+  }
+}

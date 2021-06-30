@@ -1,5 +1,6 @@
-import WorkView from './views/WorkView.js';
 import { Redirect } from 'react-router';
+import KiwiView from './views/KiwiView';
+import WorkView from './views/WorkView.js';
 
 const routes = [
   {
@@ -13,6 +14,12 @@ const routes = [
     query: 'tags',
     search: 'tags',
     component: WorkView
+  },
+  {
+    path: '/work/kiwi',
+    exact: true,
+    query: 'tags',
+    component: KiwiView
   },
 ]
 
