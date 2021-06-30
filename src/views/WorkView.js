@@ -112,13 +112,11 @@ const WorkView = () => {
                   </a>
                 ))
               }
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
   )
 }
 
