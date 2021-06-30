@@ -114,3 +114,28 @@ a, a:active, a:focus, a:hover {
 .sidebar__wrapper {
   max-height: calc(100vh);
 }
+
+// mobile
+@media only screen and (max-width: 600px) {
+  .sm-hide {
+    display: none !important;
+  }
+}
+
+// tablet
+@media only screen and (max-width: 980px) {
+  .md-hide {
+    display: none !important;
+  }
+
+  .navbar_wrapper {
+    width: calc(100% - 40px);
+  }
+}
+
+// desktop
+@media only screen and (min-width: 981px) {
+  .lg-hide {
+    display: none !important;
+  }
+}

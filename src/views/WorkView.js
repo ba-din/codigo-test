@@ -28,6 +28,8 @@ const WorkView = () => {
       setCategoryList(catList)
     }
     history.push(encodeURI(`/work?tags=${tags}`))
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tags])
 
   return (
@@ -83,7 +85,7 @@ const WorkView = () => {
             <div className="workGrid__mainWrapper">
               {
                 filteredWorkList.map((work) => (
-                  <a className={work.styleClass} href="/work/ocbc-pay-anyone"
+                  <a key={work ? work.title : '-'} className={work.styleClass} href="/work/ocbc-pay-anyone"
                     style={{ animationDelay: '0.172253s' }}>
                     <img alt="Others" className="workGrid__bgImg" src={work.img}
                       sizes="25vw"
@@ -102,7 +104,7 @@ const WorkView = () => {
                       {
                         work.legends.map((legend) => {
                           return legends[legend] && (
-                            <div className={legends[legend].styleClass}></div>
+                            <div key={legend.title} className={legends[legend].styleClass}></div>
                           )
                         })
                       }

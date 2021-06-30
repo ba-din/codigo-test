@@ -1,0 +1,53 @@
+@import "./variables.scss";
+
+.hamburgerLabel {
+  width: 26px;
+  height: 26px;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  z-index: 120;
+  background-color: $secondary;
+  border-radius: 50%;
+}
+
+.hamburgerLabel div {
+  background-color: $white;
+  position: relative;
+  width: 26px;
+  height: 5px;
+  margin-top: 3px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#humbergerMenu {
+  display: none;
+}
+
+#humbergerMenu:checked + .hamburgerLabel .top {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  margin-top: 12px;
+}
+
+#humbergerMenu:checked + .hamburgerLabel .meat {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-top: -5px;
+}
+
+#humbergerMenu:checked + .hamburgerLabel .bottom {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.navBar__itemWrapper {
+  // display: inline-block;
+  * {
+    cursor: pointer;
+  }  
+}
+

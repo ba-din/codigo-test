@@ -2,6 +2,7 @@
 import React from 'react';
 import '../assets/styles/navbar.scss';
 import Logo from '../assets/images/logo-codigo-red.svg';
+import HumberGerMenu from './humbergerMenu';
 const Navbar = ({ navButtons }) => {
   return (
     <header className="navBar">
@@ -12,7 +13,7 @@ const Navbar = ({ navButtons }) => {
             alt="catigo"
           />
         </div>
-        <div className="navigation">
+        <div className="navigation md-hide sm-hide">
           <a href="/" className="nav_link active">
             <p>
               Work
@@ -45,6 +46,8 @@ const Navbar = ({ navButtons }) => {
             })
           }
         </div>
+
+        <HumberGerMenu className="lg-hide" />
       </div>
     </header>
   )

@@ -52,3 +52,17 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 900px) {
+  .sidebar_wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .sidebar_wrapper {
+    width: 100%;
+  }
+}
+
