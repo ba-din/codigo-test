@@ -30,11 +30,11 @@ const WorkView = () => {
     <div>
       <div className="Work__mastheadWrapper">
         {/* section 1 */}
-        <p className="Work__mainHeader WorkOnboardAnim__heroCopy">Here’s 5% of
+        <p className="Work__mainHeader WorkOnboardAnim__heroCopy color--black">Here’s 5% of
         </p>
-        <p className="Work__mainHeader WorkOnboardAnim__heroCopy">our published work.
+        <p className="Work__mainHeader WorkOnboardAnim__heroCopy color--black">our published work.
         </p>
-        <p className="color--red Work__mainHeader WorkOnboardAnim__heroCopy">See 100% of our power.
+        <p className="color--red Work__mainHeader WorkOnboardAnim__heroCopy color--red">See 100% of our power.
         </p>
 
         {/* section 2 */}
@@ -89,7 +89,7 @@ const WorkView = () => {
                         { work.cat.map((cat) => workCategories[cat] ?  workCategories[cat].title : []).join(', ') }
                       </p>
                     </div>
-                    <div className="workGrid__textProjectTitle_gridWrapper" style={{ color: 'white' }}>
+                    <div className="workGrid__textProjectTitle_gridWrapper">
                       <p className="workGrid__textProjectTitle_text">
                         {work.label}
                       </p>

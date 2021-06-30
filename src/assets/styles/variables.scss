@@ -13,8 +13,9 @@ $maxWidth: 1400px;
 }
 
 .color--black {
-  color: $black !important;
-  * {
-    color: $black;
-  }
+  color: $black;
+}
+
+.color--white {
+  color: $white;
 }
