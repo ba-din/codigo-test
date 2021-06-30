@@ -21,11 +21,12 @@ export const legends = [
 ]
 
 export const works = [
-  { label: 'Ecolab', styleClass: 'workGrid__gridItem workGrid__colWidth--span2', img: 'https://cdn.codigo.co/uploads/2021/04/PAO-0@2x.jpg', cat: [10], legends: [0, 2, 3] },
+  { label: 'OCBC Pay Anyone', styleClass: 'workGrid__gridItem workGrid__colWidth--span2', img: 'https://cdn.codigo.co/uploads/2021/04/PAO-0@2x.jpg', cat: [4], legends: [0, 2] },
+  { label: 'Ecolab', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2021/04/ECO-0@2x.jpg', cat: [10], legends: [0, 2, 3] },
   { label: 'KIWI Auto Marketplace', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2021/04/KIWI-0@2x.jpg', cat: [10, 11], legends: [0, 1, 2, 3] },
   { label: 'Furama Hotels', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2021/04/FURAMA-0@2x.jpg', cat: [5], legends: [0, 3] },
   { label: 'Woodlands Transport', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2021/04/WTS-0@2x.jpg', cat: [3], legends: [0, 1, 2, 3] },
-  { label: 'Ready To Travel (SATS)', styleClass: 'workGrid__gridItem workGrid__colWidth--span2 color--black', img: 'https://cdn.codigo.co/uploads/2021/04/RTT-0@2x.jpg', cat: [5, 8], legends: [0, 1, 2, 3] },
+  { label: 'Ready To Travel (SATS)', styleClass: 'workGrid__gridItem workGrid__colWidth--span2 color--black', img: 'https://cdn.codigo.co/uploads/2021/04/RTT-0@2x.jpg', cat: [5, 8, 11], legends: [0, 1, 2, 3] },
   { label: 'Yoga Movement', styleClass: 'workGrid__gridItem workGrid__colWidth--span2', img: 'https://cdn.codigo.co/uploads/2021/04/YM-0@2x-1.jpg', cat: [5], legends: [0, 1, 2, 3] },
   { label: 'Don Don Donki', styleClass: 'workGrid__gridItem workGrid__colWidth--span2', img: 'https://cdn.codigo.co/uploads/2021/04/DONKI-0@2x.jpg', cat: [8], legends: [0, 2, 3] },
   { label: 'TAP Ride Hailing', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2021/04/TAP-0@2x.jpg', cat: [3], legends: [] },
@@ -42,7 +43,7 @@ export const works = [
   { label: 'Sky Premium', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2018/11/skypremium-thumbnail@2x.jpg', cat: [5], legends: [0, 1] },
   { label: 'T Singapore', styleClass: 'workGrid__gridItem workGrid__colWidth--span2', img: 'https://cdn.codigo.co/uploads/2018/12/TSingapore-thumbnail@2x.jpg', cat: [5], legends: [1, 2] },
   { label: 'SingPost', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2018/12/singpost-thumbnail@2x.jpg', cat: [3], legends: [0, 4] },
-  { label: 'Dine Inn', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2018/12/dineinn.jpg', cat: [1, 11], legends: [0, 1, 2] },
+  { label: 'Dine Inn', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2018/12/dineinn.jpg', cat: [1, 11, 6], legends: [0, 1, 2] },
   { label: 'Siemens Engineering', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2018/11/siemens.jpg', cat: [3], legends: [0, 1, 2] },
   { label: 'FastFast Delivery', styleClass: 'workGrid__gridItem workGrid__colWidth--span2', img: 'https://cdn.codigo.co/uploads/2018/12/FF-1.jpg', cat: [3, 11, 6], legends: [0, 1, 2] },
   { label: 'Singapore Grand Prix', styleClass: 'workGrid__gridItem', img: 'https://cdn.codigo.co/uploads/2018/12/f1.jpg', cat: ['others'], legends: [0, 1, 2] },

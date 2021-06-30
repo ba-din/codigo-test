@@ -6,26 +6,30 @@ import { useHistory } from 'react-router-dom';
 const WorkView = () => {
   const history = useHistory();
   const urlParams = new URLSearchParams(history.location.search);
-  const tags = urlParams.tags || 'all'
+  const urlTags = urlParams.get('tags') || 'all';
   const [categoryList, setCategoryList] = useState(workCategories);
+  const [tags, setTags] = useState(urlTags);
+  const [filteredWorkList, setFilteredWorkList] = useState(works);
 
   useEffect(() => {
-    history.push(encodeURI(`/work?tags=${tags}`))
-  }, [history, tags])
+    if (tags && tags !== 'all') {
+      const selectedCatIndex = workCategories.findIndex((workCat) => workCat.key === tags)
+      setFilteredWorkList(works.filter((work) => work.cat.includes(selectedCatIndex)))
 
-  const onHandleCatClick = (cat) => {
-    const catList = [...categoryList]
-    catList.map((item) => {
-      if (cat.title === item.title) {
-        item.active = true
-      } else {
-        delete item.active
-      }
-      return item
-    })
-    setCategoryList(catList)
-    history.push(encodeURI(`/work?tags=${cat.key}`))
-  }
+      const catList = [...categoryList]
+      catList.map((item) => {
+        if (tags === item.key) {
+          item.active = true
+        } else {
+          delete item.active
+        }
+        return item
+      })
+      setCategoryList(catList)
+    }
+    history.push(encodeURI(`/work?tags=${tags}`))
+  }, [tags])
+
   return (
     <div>
       <div className="Work__mastheadWrapper">
@@ -44,7 +48,7 @@ const WorkView = () => {
               categoryList.map((category) => {
                 const styleClass = `workCategory__itemWrapper ${category.active ? 'is--active' : ''}`
                 return (
-                  <div key={category.key} className={styleClass} onClick={() => onHandleCatClick(category)}>
+                  <div key={category.key} className={styleClass} onClick={() => setTags(category.key)}>
                     <div className="workCategory__itemText">
                       {category.title}
                     </div>
@@ -78,7 +82,7 @@ const WorkView = () => {
           <div style={{ display: 'block' }}>
             <div className="workGrid__mainWrapper">
               {
-                works.map((work) => (
+                filteredWorkList.map((work) => (
                   <a className={work.styleClass} href="/work/ocbc-pay-anyone"
                     style={{ animationDelay: '0.172253s' }}>
                     <img alt="Others" className="workGrid__bgImg" src={work.img}
@@ -86,7 +90,7 @@ const WorkView = () => {
                       srcSet={`${work.img} 375w, ${work.img} 750w`} />
                     <div className="workGrid__textCategory_gridWrapper">
                       <p className="workGrid__textCategory_text">
-                        { work.cat.map((cat) => workCategories[cat] ?  workCategories[cat].title : []).join(', ') }
+                        {work.cat.map((cat) => workCategories[cat] ? workCategories[cat].title : []).join(', ')}
                       </p>
                     </div>
                     <div className="workGrid__textProjectTitle_gridWrapper">
@@ -106,7 +110,7 @@ const WorkView = () => {
                   </a>
                 ))
               }
-              
+
             </div>
           </div>
         </div>
