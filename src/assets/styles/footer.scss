@@ -1,0 +1,104 @@
+@import "./variables.scss";
+
+.footer {
+  padding: 100px 0 50px;
+  position: relative;
+  background-color: $lightgray;
+}
+
+.footer__header {
+  text-align: center;
+  color: $red;
+  margin-bottom: 75px;
+  display: block;
+}
+
+.extraBold--36 {
+  font-weight: 800;
+  font-size: 36px;
+}
+
+.footer_trust_wrapper {
+  width: 90%;
+  max-width: $maxWidth;
+  margin: 0 auto 85px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trusts__itemWrapper {
+  flex: 1 0 21%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.trusts__itemWrapper:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  width: calc(25% - 1px);
+}
+
+.trusts__itemWrapper--centraliser {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.extraBold--26 {
+  font-weight: 800;
+  font-size: 26px;
+}
+
+.trusts__header {
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: all 0.8s cubic-bezier(0.2, 0.6, 0.4, 1);
+  width: 100%;
+}
+
+.trusts__header.w--arrow:after {
+  transition: all 1.25s cubic-bezier(0.2, 0.6, 0.4, 1);
+  left: 0;
+}
+
+.trusts__header.w--arrow:after {
+  content: "";
+  width: 15px;
+  height: 9px;
+  display: inline-block;
+  position: relative;
+  margin-top: 7px;
+  margin-left: 20px;
+  background-image: url(https://www.codigo.co/img/icons/arrow-red.svg);
+  background-repeat: no-repeat;
+}
+
+.trusts__itemWrapper:hover .trusts__header.w--arrow:after {
+  left: 15px;
+}
+
+.trusts__itemWrapper:hover .trusts__header {
+  color: $red;
+}
+
+.footer_contactInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > .footer_social {
+    display: inline-block;
+    margin: 0 auto 30px;
+    > * {
+      margin: 0 15px;
+    }
+  }
+
+  span:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}

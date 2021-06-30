@@ -4,6 +4,7 @@ import { renderRoutes } from 'react-router-config';
 import routes from './routes.js';
 import Sidebar from "./components/Sidebar";
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer';
 
 import './App.scss';
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           <Router>
             {renderRoutes(routes)}
           </Router>
+          <Footer />
         </div>
       </div>
       <div className="sidebar__wrapper">
