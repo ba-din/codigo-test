@@ -300,6 +300,13 @@
   transition: opacity 0.5s;
 }
 
+.workGrid__gridItem:hover {
+  color: $white !important;
+  * {
+    color: $white !important;
+  }
+}
+
 .workGrid__gridItem:hover:after {
   opacity: 0.35;
 }

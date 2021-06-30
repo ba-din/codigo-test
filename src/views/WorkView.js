@@ -84,14 +84,14 @@ const WorkView = () => {
                     <img alt="Others" className="workGrid__bgImg" src={work.img}
                       sizes="25vw"
                       srcSet={`${work.img} 375w, ${work.img} 750w`} />
-                    <div className="workGrid__textCategory_gridWrapper" style={{ color: 'white' }}>
+                    <div className="workGrid__textCategory_gridWrapper">
                       <p className="workGrid__textCategory_text">
-                        Others
+                        { work.cat.map((cat) => workCategories[cat] ?  workCategories[cat].title : []).join(', ') }
                       </p>
                     </div>
                     <div className="workGrid__textProjectTitle_gridWrapper" style={{ color: 'white' }}>
                       <p className="workGrid__textProjectTitle_text">
-                        Ecolab
+                        {work.label}
                       </p>
                     </div>
                     <div className="workGrid__icoPlatformsOnMainWrapper">
