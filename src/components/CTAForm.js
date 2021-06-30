@@ -1,76 +1,150 @@
 import React from 'react';
 import '../assets/styles/ctaForm.scss'
 
-const CTAForms = () => {
+const CTAForms = ({ isLetsChat }) => {
   return (
     <div>
-      {/* section Header */}
+      {/* div Header */}
       <div className="CTAForm_header">
         <div className="CTAForm_header_content">
-          <h1>
-            Request a quote
-          </h1>
-          <p className="CTAFormMasthead__bodyCopy">
-            Get a ballpark costing on the product or idea you want to build. Be specific to get a more concise cost and timeline.
-          </p>
-          <p className="CTAFormMasthead__legend">*Mandatory fields</p>
+          {
+            isLetsChat ?
+              <>
+                <h1>Let’s chat about</h1>
+                <div class="CTAFormDropdown__mainWrapper">
+                  <select class="CTAFormDropdown__dropdownEl">
+                    <option value="quote">
+                      Helping you to build something
+                    </option>
+                    <option value="co-incubate">
+                      Co-incubating an idea together
+                    </option>
+                    <option value="customise">
+                      Customising a Solution
+                    </option>
+                    <option value="organise">
+                      Organising a Learning Session
+                    </option>
+                  </select>
+                  <div class="CTAFormDropdown__arrowEl">
+                  </div>
+                </div>
+                <p class="CTAFormMasthead__legend">
+                  *Mandatory fields
+                </p>
+              </>
+              :
+              <>
+                <h1>
+                  Request a quote
+                </h1>
+                <p className="CTAFormMasthead__bodyCopy">
+                  Get a ballpark costing on the product or idea you want to build. Be specific to get a more concise cost and timeline.
+                </p>
+                <p className="CTAFormMasthead__legend">*Mandatory fields</p>
+              </>
+          }
         </div>
       </div>
+
 
       <div className="CTAForms_container">
         <div className="CTAFormPages__mainWrapper clearfix">
           <div className="AnimCTAForms--onBoardFade">
             <form>
               <div style={{ position: 'relative' }}>
-                <div className="js-multiInputWrapper js-isRequired formElements__group CTAFormPages__inputMainWrapper">
-                  <label className="CTAFormPages__header">
-                    What do you want to build? *
-                  </label>
-                  <div className="clearfix">
-                    <label className="CTAFormPages__inputLabelWrapper--checkbox">
-                      <input type="checkbox" className="CTAFormPages__defaultInputEl--checkbox" value="mobile_app" />
-                      <div className="CTAFormPages__customInputEl--checkbox">
+                {
+                  isLetsChat ?
+                    <>
+                      {/* let's Chat */}
+                      <div class="js-multiInputWrapper js-isRequired js-formElements__group CTAFormPages__inputMainWrapper">
+                        <label class="CTAFormPages__header">
+                          What industry is this solution to be used in? *
+                        </label>
+                        <div class="clearfix">
+                          <label class="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" name="findMethod" class="CTAFormPages__defaultInputEl--checkbox" value="logistics" />
+                            <div class="CTAFormPages__customInputEl--checkbox"></div>
+                            <div class="CTAFormPages__checkboxLabel">Logistics</div>
+                          </label>
+                          <label class="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" name="findMethod" class="CTAFormPages__defaultInputEl--checkbox" value="ride_booking" />
+                            <div class="CTAFormPages__customInputEl--checkbox"></div>
+                            <div class="CTAFormPages__checkboxLabel">Ride Booking</div>
+                          </label>
+                          <label class="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" name="findMethod" class="CTAFormPages__defaultInputEl--checkbox" value="service_providing" />
+                            <div class="CTAFormPages__customInputEl--checkbox"></div>
+                            <div class="CTAFormPages__checkboxLabel">Service Providing</div>
+                          </label>
+                          <label class="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" name="findMethod" class="CTAFormPages__defaultInputEl--checkbox" value="customer_loyality" />
+                            <div class="CTAFormPages__customInputEl--checkbox"></div>
+                            <div class="CTAFormPages__checkboxLabel">Customer Loyality</div>
+                          </label>
+                          <label class="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" name="findMethod" class="CTAFormPages__defaultInputEl--checkbox" value="others" />
+                            <div class="CTAFormPages__customInputEl--checkbox"></div>
+                            <div class="CTAFormPages__checkboxLabel">Others</div>
+                          </label>
+                        </div>
+                        <div class="fixedDropdownErrorMsg">Please select an option.</div>
                       </div>
-                      <div className="CTAFormPages__checkboxLabel">
-                        Mobile App
+                    </> :
+                    // request a quote
+                    <>
+                      <div className="formElements__group CTAFormPages__inputMainWrapper">
+                        <label className="CTAFormPages__header">
+                          What do you want to build? *
+                        </label>
+                        <div className="clearfix">
+                          <label className="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" className="CTAFormPages__defaultInputEl--checkbox" value="mobile_app" />
+                            <div className="CTAFormPages__customInputEl--checkbox">
+                            </div>
+                            <div className="CTAFormPages__checkboxLabel">
+                              Mobile App
+                            </div>
+                          </label>
+                          <label className="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" className="CTAFormPages__defaultInputEl--checkbox" value="website" />
+                            <div className="CTAFormPages__customInputEl--checkbox">
+                            </div>
+                            <div className="CTAFormPages__checkboxLabel">
+                              Website
+                            </div>
+                          </label>
+                          <label className="CTAFormPages__inputLabelWrapper--checkbox">
+                            <input type="checkbox" className="CTAFormPages__defaultInputEl--checkbox" value="not_sure_yet" />
+                            <div className="CTAFormPages__customInputEl--checkbox"></div>
+                            <div className="CTAFormPages__checkboxLabel">
+                              I'm not sure yet
+                            </div>
+                          </label>
+                        </div>
+                        <div className="fixedDropdownErrorMsg">
+                          Please select an option.
+                        </div>
                       </div>
-                    </label>
-                    <label className="CTAFormPages__inputLabelWrapper--checkbox">
-                      <input type="checkbox" className="CTAFormPages__defaultInputEl--checkbox" value="website" />
-                      <div className="CTAFormPages__customInputEl--checkbox">
-                      </div>
-                      <div className="CTAFormPages__checkboxLabel">
-                        Website
-                      </div>
-                    </label>
-                    <label className="CTAFormPages__inputLabelWrapper--checkbox">
-                      <input type="checkbox" className="CTAFormPages__defaultInputEl--checkbox" value="not_sure_yet" />
-                      <div className="CTAFormPages__customInputEl--checkbox"></div>
-                      <div className="CTAFormPages__checkboxLabel">
-                        I'm not sure yet
-                      </div>
-                    </label>
-                  </div>
-                  <div className="fixedDropdownErrorMsg">
-                    Please select an option.
-                  </div>
-                </div>
 
-                <div className="CTAFormPages__inputMainWrapper">
-                  <label className="CTAFormPages__header">
-                    What are the objectives, requirements and functionalities of this product? *
-                  </label>
-                  <textarea
-                    className="form-control CTAFormPages__defaultInputEl--textarea"
-                    required
-                    placeholder="You can list down everything in point form or just paragraphs. It’s completely up to you. The more details we get, the more we can understand what you want to achieve."
-                    spellcheck="false"
-                  >
-                  </textarea>
-                  <div className="invalid-feedback">
-                  </div>
-                </div>
+                      <div className="CTAFormPages__inputMainWrapper">
+                        <label className="CTAFormPages__header">
+                          What are the objectives, requirements and functionalities of this product? *
+                        </label>
+                        <textarea
+                          className="form-control CTAFormPages__defaultInputEl--textarea"
+                          required
+                          placeholder="You can list down everything in point form or just paragraphs. It’s completely up to you. The more details we get, the more we can understand what you want to achieve."
+                          spellcheck="false"
+                        >
+                        </textarea>
+                        <div className="invalid-feedback">
+                        </div>
+                      </div>
 
+                    </>
+                }
+                
                 <div className="CTAFormPages__inputMainWrapper">
                   <label className="CTAFormPages__header">
                     Do you have a budget? *

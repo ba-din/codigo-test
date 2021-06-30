@@ -5,6 +5,7 @@
   border-bottom: 1px solid #cacaca;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -77,15 +78,14 @@
 
 .CTAFormPages__inputLabelWrapper--checkbox {
   width: 30.33333%;
-  display: inline-block;
   float: left;
   cursor: pointer;
   position: relative;
   margin-right: 3%;
   margin-bottom: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   font-size: 100%;
 }
 
@@ -281,11 +281,26 @@
 .CTAFormPages__btnSubmit {
   color: #fff;
   background: #d5333e;
-  padding: 4px 60px;
+  padding: 20px 60px;
   border-radius: 50px;
   cursor: pointer;
   float: right;
   clear: both;
   outline: none;
   border: none;
+}
+
+.CTAFormDropdown__dropdownEl {
+  width: 100%;
+  font-size: 14px;
+  line-height: 15px;
+  background: #f9f9f9;
+  border: 1px solid #cacaca;
+  border-radius: 0;
+  padding: 19px 45px 19px 20px;
+  outline: unset;
+}
+
+.CTAFormDropdown__mainWrapper {
+  margin-bottom: 20px;
 }

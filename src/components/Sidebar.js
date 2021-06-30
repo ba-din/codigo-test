@@ -3,7 +3,7 @@ import '../assets/styles/sidebar.scss';
 import CTAForm from './CTAForm';
 
 let timer = null
-const Sidebar = ({ show, setShow }) => {
+const Sidebar = ({ show, setShow, isLetsChat }) => {
   const [styleClasses, setStyleClasses] = useState('sidebar_wrapper')
   useEffect(() => {
     if (show) {
@@ -28,7 +28,9 @@ const Sidebar = ({ show, setShow }) => {
         show && (
           <div className={styleClasses}>
             <div className="sidebar-close" onClick={() => onHandleSideBarClose()}></div>
-            <CTAForm />
+            <CTAForm 
+              isLetsChat={isLetsChat}
+            />
           </div>
         )
       }

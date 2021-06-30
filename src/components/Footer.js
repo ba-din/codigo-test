@@ -1,12 +1,16 @@
 import React from 'react';
 import '../assets/styles/footer.scss';
 
-const Footer = () => {
+const Footer = ({setSidebarOpen, setIsLetsChat }) => {
+  const onHandleLetsChat = () => {
+    setSidebarOpen(true)
+    setIsLetsChat(true)
+  }
   return (
     <div className="footer">
       <span className="extraBold--36 footer__header">Let’s have a chat</span>
 
-      <div className="footer_trust_wrapper clearfix">
+      <div className="footer_trust_wrapper clearfix" onClick={() => onHandleLetsChat()}>
         <div className="trusts__itemWrapper">
           <div className="trusts__itemWrapper--centraliser">
             <span className="extraBold--26 trusts__header w--arrow">
@@ -18,7 +22,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="trusts__itemWrapper">
+        <div className="trusts__itemWrapper" onClick={() => onHandleLetsChat()}>
           <div className="trusts__itemWrapper--centraliser">
             <span className="extraBold--26 trusts__header w--arrow">
               Co-incubate
@@ -29,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="trusts__itemWrapper">
+        <div className="trusts__itemWrapper" onClick={() => onHandleLetsChat()}>
           <div className="trusts__itemWrapper--centraliser">
             <span className="extraBold--26 trusts__header w--arrow">
               Customise

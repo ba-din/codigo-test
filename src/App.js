@@ -26,6 +26,7 @@ const App = () => {
     window.addEventListener('scroll', onScrollHandler)
   })
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isLetsChat, setIsLetsChat] = useState(false);
 
   return (
     <div style={{ position: 'relative' }}>
@@ -43,7 +44,7 @@ const App = () => {
           <Router>
             {renderRoutes(routes)}
           </Router>
-          <Footer />
+          <Footer setSidebarOpen={setSidebarOpen} setIsLetsChat={setIsLetsChat}/>
         </div>
       </div>
       <div className="sidebar__wrapper">
@@ -51,6 +52,7 @@ const App = () => {
           show={sidebarOpen}
           setShow={setSidebarOpen}
           style={{ position: 'absolute' }}
+          isLetsChat={isLetsChat}
         />
       </div>
     </div>
